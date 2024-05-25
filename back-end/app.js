@@ -15,7 +15,7 @@ const connectDB = async () => {
         console.log('MongoDB connected successfully');
     } catch (error) {
         console.error('MongoDB connection error:', error.message);
-        process.exit(1); // Exit process with failure
+        process.exit(1); 
     }
 };
 
@@ -63,7 +63,7 @@ app.put('/api/todos/:id', async (req, res) => {
         const updatedTodo = await Todo.findByIdAndUpdate(
             id,
             { task, description, details, status },
-            { new: true } // Return the updated document
+            { new: true } 
         );
         if (!updatedTodo) {
             return res.status(404).json({ message: 'Todo not found' });
